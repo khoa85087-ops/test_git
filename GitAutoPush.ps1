@@ -1,6 +1,4 @@
-Start-Process powershell.exe -WindowStyle Hidden -ArgumentList '-ExecutionPolicy Bypass -Command "& {
-
-$repo = \"C:\Users\AD\Downloads\note_git_hub\"
+$repo = "C:\Users\AD\Downloads\f2z"
 
 while ($true) {
 
@@ -8,15 +6,21 @@ while ($true) {
 
         Set-Location $repo
 
+        # bỏ delete khỏi stage
+        git restore --staged .
+
+        # chỉ add file còn tồn tại
+        Get-ChildItem -File -Recurse | ForEach-Object {
+            git add $_.FullName
+        }
+
         $changes = git status --porcelain
 
         if ($changes) {
 
-            git add *
+            $time = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 
-            $time = Get-Date -Format \"yyyy-MM-dd HH:mm:ss\"
-
-            git commit -m \"auto update $time\"
+            git commit -m "auto backup $time"
 
             git push
         }
@@ -27,5 +31,3 @@ while ($true) {
 
     Start-Sleep -Seconds 10
 }
-
-}"'
