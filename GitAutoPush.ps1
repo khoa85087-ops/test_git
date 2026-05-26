@@ -2,26 +2,20 @@ $repo = "C:\Users\AD\Downloads\f2z"
 
 while ($true) {
 
-    try {
+    cd $repo
 
-        Set-Location $repo
+    git add -A
 
-        $changes = git status --porcelain
+    $changes = git status --porcelain
 
-        if ($changes) {
+    if ($changes) {
 
-            git add .
+        $time = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 
-            $time = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+        git commit -m "auto sync $time"
 
-            git commit -m "auto sync $time"
-
-            git push
-        }
-
-    }
-    catch {
+        git push
     }
 
-    Start-Sleep -Seconds 5
+    Start-Sleep 5
 }
