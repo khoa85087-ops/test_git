@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ============================================================================
+         PHIÊN BẢN 1: VIEWBOX (Đơn giản + Nét nhất)
+         ✅ Cách tốt nhất cho bình thường
+         ✅ Scale vô hạn mà vẫn nét
+         ✅ Không cần code-behind
+    ============================================================================ -->
+    <Style x:Key="PreviewImageSimple" TargetType="{x:Type Image}">
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="Fant"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+    </Style>
+
+    <Style x:Key="PreviewImageContainerSimple" TargetType="{x:Type Viewbox}">
+        <Setter Property="Width" Value="260"/>
+        <Setter Property="Height" Value="260"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,30"/>
+        <Setter Property="Stretch" Value="Uniform"/>
+    </Style>
+
+    <!-- Cách dùng:
+    <Viewbox Style="{StaticResource PreviewImageContainerSimple}">
+        <Image Source="image.png" Style="{StaticResource PreviewImageSimple}"/>
+    </Viewbox>
+    -->
+
+
+    <!-- ============================================================================
+         PHIÊN BẢN 2: RenderTransform + Thêm tối ưu
+         ✅ Giữ cách dùng giống cũ
+         ✅ Tốt hơn LayoutTransform
+         ✅ Không cần wrapper
+    ============================================================================ -->
+    <Style x:Key="PreviewImageMedium" TargetType="{x:Type Image}">
+        <!-- Render quality -->
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="Fant"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+
+        <!-- Alignment -->
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+
+        <!-- Size -->
+        <Setter Property="Width" Value="260"/>
+        <Setter Property="Height" Value="260"/>
+
+        <!-- Aspect ratio -->
+        <Setter Property="Stretch" Value="Uniform"/>
+
+        <!-- RenderTransform thay LayoutTransform (tốt hơn) -->
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <ScaleTransform ScaleX="1.7" ScaleY="1.7"/>
+            </Setter.Value>
+        </Setter>
+
+        <!-- Cache để tránh mất nét -->
+        <Setter Property="CacheMode">
+            <Setter.Value>
+                <BitmapCache RenderAtScale="2.0" EnableClearType="False"/>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Margin" Value="0,30"/>
+    </Style>
+
+    <!-- Cách dùng:
+    <Image Source="image.png" Style="{StaticResource PreviewImageMedium}"/>
+    -->
+
+
+    <!-- ============================================================================
+         PHIÊN BẢN 3: ADVANCED - Với DecodePixelWidth (Nét nhất + Hiệu suất)
+         ✅ Tối ưu memory
+         ✅ Nét nhất khi scale
+         ✅ Cần code-behind nhưng rất hiệu quả
+    ============================================================================ -->
+    <Style x:Key="PreviewImageAdvanced" TargetType="{x:Type Image}">
+        <!-- Render quality -->
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="Fant"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+
+        <!-- Alignment -->
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+
+        <!-- Size -->
+        <Setter Property="Width" Value="260"/>
+        <Setter Property="Height" Value="260"/>
+
+        <!-- Aspect ratio -->
+        <Setter Property="Stretch" Value="Uniform"/>
+
+        <!-- RenderTransform -->
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <ScaleTransform ScaleX="1.7" ScaleY="1.7"/>
+            </Setter.Value>
+        </Setter>
+
+        <!-- Cache -->
+        <Setter Property="CacheMode">
+            <Setter.Value>
+                <BitmapCache RenderAtScale="2.0" EnableClearType="False"/>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Margin" Value="0,30"/>
+    </Style>
+
+    <!-- Cách dùng (với code-behind):
+    <Image x:Name="PreviewImage" Style="{StaticResource PreviewImageAdvanced}"/>
+    
+    // Code-behind:
+    PreviewImage.Source = LoadImageWithHighQuality("image.png", 260);
+    -->
+
+</ResourceDictionary>
