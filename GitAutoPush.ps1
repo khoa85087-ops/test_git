@@ -1,4 +1,6 @@
-$repo = "C:\Users\AD\Downloads\f2z"
+Start-Process powershell.exe -WindowStyle Hidden -ArgumentList '-ExecutionPolicy Bypass -Command "& {
+
+$repo = \"C:\Users\AD\Downloads\note_git_hub\"
 
 while ($true) {
 
@@ -6,29 +8,24 @@ while ($true) {
 
         Set-Location $repo
 
-        # reset delete stage
-        git restore --staged .
-
-        # add/update toàn bộ file còn tồn tại
-        Get-ChildItem -Recurse -File | ForEach-Object {
-            git add -- $_.FullName
-        }
-
-        # check có thay đổi không
-        $changes = git diff --cached --name-only
+        $changes = git status --porcelain
 
         if ($changes) {
 
-            $time = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+            git add .
 
-            git commit -m "auto backup $time"
+            $time = Get-Date -Format \"yyyy-MM-dd HH:mm:ss\"
 
-            git push origin main
+            git commit -m \"auto update $time\"
+
+            git push
         }
 
     }
     catch {
     }
 
-    Start-Sleep -Seconds 5
+    Start-Sleep -Seconds 10
 }
+
+}"'
