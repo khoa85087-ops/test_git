@@ -10,15 +10,20 @@ while ($true) {
 
         $changes = git status --porcelain
 
-        if ($changes) {
+        $deletedCount = @($changes | Select-String \"^ D\").Count
 
-            git add .
+        if ($deletedCount -le 5) {
 
-            $time = Get-Date -Format \"yyyy-MM-dd HH:mm:ss\"
+            if ($changes) {
 
-            git commit -m \"auto update $time\"
+                git add .
 
-            git push
+                $time = Get-Date -Format \"yyyy-MM-dd HH:mm:ss\"
+
+                git commit -m \"auto update $time\"
+
+                git push
+            }
         }
 
     }
