@@ -6,15 +6,16 @@ while ($true) {
 
         Set-Location $repo
 
-        # bỏ delete khỏi stage
+        # reset delete stage
         git restore --staged .
 
-        # chỉ add file còn tồn tại
-        Get-ChildItem -File -Recurse | ForEach-Object {
-            git add $_.FullName
+        # add/update toàn bộ file còn tồn tại
+        Get-ChildItem -Recurse -File | ForEach-Object {
+            git add -- $_.FullName
         }
 
-        $changes = git status --porcelain
+        # check có thay đổi không
+        $changes = git diff --cached --name-only
 
         if ($changes) {
 
@@ -22,12 +23,12 @@ while ($true) {
 
             git commit -m "auto backup $time"
 
-            git push
+            git push origin main
         }
 
     }
     catch {
     }
 
-    Start-Sleep -Seconds 10
+    Start-Sleep -Seconds 5
 }
