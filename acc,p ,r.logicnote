@@ -1,0 +1,22 @@
+﻿#TITLE
+FONT=18;BOLD=False;COLOR=#FF000000
+acc,p ,r
+#INPUT
+FONT=18;BOLD=False;COLOR=#FF000000
+
+#REASONING
+FONT=18;BOLD=False;COLOR=#FF000000
+•acc: độ chính tổng thể (số dự đoán đúng/tổng mẫu  ) của mô hình 
+•p : tính chính xác của kểt quả trả về 
+→mèo dự đoán đúng/ mèo mô hình trả về  
+ ⇒ mèo tìm được bao nhiêu con là đúng là mèo thật 
+•r:độ nhạy :xác định được càng nhiều càng tốt 
+→mèo dự đoán đúng /mèo thật  đầu vào 
+ ⇒ tìm được bao nhiêu mèo 
+confusion maxtrix
+acc:đường chéo chính /tổng phần tử
+pi:giá trị đúng/cột→p trung bình 
+ri:giá trị đúng/hàng →r trung bình
+#OUTPUT
+FONT=18;BOLD=False;COLOR=#FF000000
+
