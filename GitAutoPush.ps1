@@ -2,20 +2,32 @@ $repo = "C:\Users\AD\Downloads\f2z"
 
 while ($true) {
 
-    cd $repo
+    try {
 
-    git add -A
+        Set-Location $repo
 
-    $changes = git status --porcelain
+        # bỏ delete khỏi stage
+        git restore --staged .
 
-    if ($changes) {
+        # chỉ add file còn tồn tại
+        Get-ChildItem -File -Recurse | ForEach-Object {
+            git add $_.FullName
+        }
 
-        $time = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+        $changes = git status --porcelain
 
-        git commit -m "auto sync $time"
+        if ($changes) {
 
-        git push
+            $time = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+
+            git commit -m "auto backup $time"
+
+            git push
+        }
+
+    }
+    catch {
     }
 
-    Start-Sleep 5
+    Start-Sleep -Seconds 10
 }
