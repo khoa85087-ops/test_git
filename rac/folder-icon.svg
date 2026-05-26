@@ -1,0 +1,28 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .folder-main { fill: #FFC947; stroke: none; }
+      .folder-outline { fill: none; stroke: #1a1a1a; stroke-width: 18; stroke-linecap: round; stroke-linejoin: round; }
+      .tab-bg { fill: white; }
+      .tab-line { stroke: #000; stroke-width: 14; stroke-linecap: round; }
+    </style>
+  </defs>
+  
+  <!-- Main folder body - yellow -->
+  <path class="folder-main" d="M 30 240 L 30 480 C 30 502 47 512 70 512 L 442 512 C 465 512 482 502 482 480 L 482 170 C 482 148 465 138 442 138 L 235 138 L 210 85 C 205 70 193 60 178 60 L 70 60 C 47 60 30 70 30 92 Z"/>
+  
+  <!-- Folder outline with stroke -->
+  <path class="folder-outline" d="M 30 240 L 30 480 C 30 502 47 512 70 512 L 442 512 C 465 512 482 502 482 480 L 482 170 C 482 148 465 138 442 138 L 235 138 L 210 85 C 205 70 193 60 178 60 L 70 60 C 47 60 30 70 30 92 Z"/>
+  
+  <!-- White tab background (paper/document appearance) -->
+  <path class="tab-bg" d="M 55 128 L 320 128 C 330 128 338 136 343 148 L 380 210 L 55 210 C 42 210 30 200 30 185 L 30 145 C 30 128 42 128 55 128 Z"/>
+  
+  <!-- Dark blue top line on tab -->
+  <g>
+    <rect x="100" y="148" width="180" height="14" rx="7" class="tab-line" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round"/>
+    <line x1="105" y1="154" x2="275" y2="154" class="tab-line"/>
+  </g>
+  
+  <!-- Small circle accent (optional - dots for detail) -->
+  <circle cx="68" cy="152" r="8" fill="#E8B923" stroke="none"/>
+</svg>
