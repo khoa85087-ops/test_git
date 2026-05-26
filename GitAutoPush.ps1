@@ -12,7 +12,7 @@ while ($true) {
 
         if ($changes) {
 
-            git add .
+            git add *
 
             $time = Get-Date -Format \"yyyy-MM-dd HH:mm:ss\"
 
