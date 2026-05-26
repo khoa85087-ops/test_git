@@ -1,4 +1,6 @@
-$repo = "C:\Users\AD\Downloads\f2z"
+Start-Process powershell.exe -WindowStyle Hidden -ArgumentList '-ExecutionPolicy Bypass -Command "& {
+
+$repo = \"C:\Users\AD\Downloads\note_git_hub\"
 
 while ($true) {
 
@@ -12,17 +14,18 @@ while ($true) {
 
             git add .
 
-            $time = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+            $time = Get-Date -Format \"yyyy-MM-dd HH:mm:ss\"
 
-            git commit -m "auto update $time"
+            git commit -m \"auto update $time\"
 
             git push
         }
 
     }
     catch {
-        $_
     }
 
     Start-Sleep -Seconds 10
 }
+
+}"'
