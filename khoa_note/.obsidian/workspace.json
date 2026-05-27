@@ -22,22 +22,6 @@
             }
           }
         ]
-      },
-      {
-        "id": "619c941406c3229c",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "814f3c5c39f72e0c",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Xem biểu đồ"
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -110,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Chưa đặt tên.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Liên kết đến"
+              "title": "Liên kết đến của Chưa đặt tên"
             }
           },
           {
@@ -128,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Chưa đặt tên.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Liên kết đi ra"
+              "title": "Liên kết đi ra từ Chưa đặt tên"
             }
           },
           {
@@ -170,12 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Chưa đặt tên.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Đề cương"
+              "title": "Đề cương của Chưa đặt tên"
             }
           }
         ]
@@ -196,7 +183,7 @@
       "bases:Tạo cơ sở mới": false
     }
   },
-  "active": "814f3c5c39f72e0c",
+  "active": "6229dca3a164bc9e",
   "lastOpenFiles": [
     "Chưa đặt tên.md",
     "Chào mừng.md"
