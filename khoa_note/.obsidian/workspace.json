@@ -8,35 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "cb564140b8a11a45",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Chào mừng.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Chào mừng"
-            }
-          },
-          {
             "id": "6229dca3a164bc9e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Chào mừng.md",
+                "file": "Chưa đặt tên.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chào mừng"
+              "title": "Chưa đặt tên"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "619c941406c3229c",
@@ -125,7 +110,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Chào mừng.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -135,7 +119,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Liên kết đến của Chào mừng"
+              "title": "Liên kết đến"
             }
           },
           {
@@ -144,12 +128,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Chào mừng.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Liên kết đi ra từ Chào mừng"
+              "title": "Liên kết đi ra"
             }
           },
           {
@@ -187,13 +170,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Chào mừng.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Đề cương của Chào mừng"
+              "title": "Đề cương"
             }
           }
         ]
@@ -214,7 +196,7 @@
       "bases:Tạo cơ sở mới": false
     }
   },
-  "active": "3317ba338752610b",
+  "active": "814f3c5c39f72e0c",
   "lastOpenFiles": [
     "Chưa đặt tên.md",
     "Chào mừng.md"
