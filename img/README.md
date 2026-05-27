@@ -1,6 +1,6 @@
 # FX5U Analog
 
-![demo](/plc.png)
+![demo](../img/plc.png)
 
 ```ladder
 MOV K4000 SD6180
