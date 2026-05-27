@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Chưa đặt tên.md",
+                "file": "plc note.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chưa đặt tên"
+              "title": "plc note"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Chưa đặt tên.md",
+                "file": "plc note.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Liên kết đến của Chưa đặt tên"
+              "title": "Liên kết đến của plc note"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Chưa đặt tên.md",
+                "file": "plc note.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Liên kết đi ra từ Chưa đặt tên"
+              "title": "Liên kết đi ra từ plc note"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Chưa đặt tên.md",
+                "file": "plc note.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Đề cương của Chưa đặt tên"
+              "title": "Đề cương của plc note"
             }
           }
         ]
@@ -185,7 +185,7 @@
   },
   "active": "6229dca3a164bc9e",
   "lastOpenFiles": [
-    "Chưa đặt tên.md",
+    "plc note.md",
     "Chào mừng.md"
   ]
 }
