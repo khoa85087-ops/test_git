@@ -129,7 +129,13 @@ C:\Users\AD\AppData\Local\FlowLauncher\app-2.1.2\Images
 C:\Users\AD\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 
 
-8/////hack 
+8/////website 
 allow pasting
 document.designMode='on'
+lấy ảnh 
+document.querySelectorAll('img').forEach(img=>{
+console.log(img)
+})
+lấy link 
+[...document.links].map(a=>a.href)
 
