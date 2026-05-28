@@ -1,4 +1,4 @@
-1///////////////////
+1>>>>>> kiểm tra máy 
 
 Write-Host "`n=== APP DANG TRUY CAP MANG ===" -ForegroundColor Cyan
 
@@ -63,13 +63,13 @@ Format-Table -AutoSize
 
 
 
-2//////////////xóa cockier
+2>>>>>>>xóa cockier
 cookie :opera
 opera://settings/content/all
 
 
 
-3///////// chặn mạng 
+3>>>>>> chặn mạng 
 # Lấy path thật của Look
 $look = (Get-Process lookapp).Path
 
@@ -103,7 +103,7 @@ Write-Host "Look blocked."
 
 
 
-3/////////dich 
+3>>>>>>dich 
 Hãy dịch đoạn văn tôi gửi theo các yêu cầu sau:
 
 - Nội dung/chủ đề: [kỹ thuật điện công nghiệp / PLC /lý thuyết điều khiển /vi điều kiển /lập trình /robot ]
@@ -120,22 +120,30 @@ Nội dung chính tôi muốn  bạn  học để dịch chính xác hơn là (c
 
 
 
-5//////tim patd 
+5>>>>>tim patd 
 (Get-Process lookapp).Path
-6////// chinh icon flow lancher 
+6>>>> chinh icon flow lancher 
 C:\Users\AD\AppData\Local\FlowLauncher\app-2.1.2\Images
 
-7///////start up 
+7>>>>>start up 
 C:\Users\AD\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 
 
-8/////website 
+8>>>>website 
 allow pasting
 document.designMode='on'
-lấy ảnh 
+/////lấy ảnh 
 document.querySelectorAll('img').forEach(img=>{
 console.log(img)
 })
-lấy link 
+/////lấy link 
 [...document.links].map(a=>a.href)
+/////tải text của toàn bộ web 
+let a=document.createElement('a')
+
+a.href='data:text/plain,'+encodeURIComponent(document.body.innerText)
+
+a.download='page.txt'
+
+a.click()
 
