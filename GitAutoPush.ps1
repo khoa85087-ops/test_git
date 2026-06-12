@@ -10,7 +10,7 @@ while ($true)
 
         if (-not $changes)
         {
-            Start-Sleep -Seconds 10
+            Start-Sleep -Seconds 300
             continue
         }
 
