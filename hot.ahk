@@ -99,3 +99,5 @@ CheckApp()
     Send("^a")
     Send("{Backspace}")
 }
+
+!g::SendText('git commit --allow-empty -m "NOTE: " && git push')
