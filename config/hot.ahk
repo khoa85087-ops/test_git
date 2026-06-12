@@ -1,54 +1,13 @@
 ﻿#Requires AutoHotkey v2.0
+#SingleInstance Force
+
 A_MaxHotkeysPerInterval := 999999
-#Requires AutoHotkey v2.0
 
 #`::Send "#+s"
 
 ; Alt + C = đóng app
 !c::Send("!{F4}")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
 !q::
 {
     A_Clipboard := "[Nhiệm vụ]:`n[điều kiện quan trọng]:`n[kiểu output]: "
@@ -57,78 +16,36 @@ A_MaxHotkeysPerInterval := 999999
 
 
 
-
+; Alt + F = Alt + Tab
 !f::Send("!{Tab}")
 
+; WASD = Arrow Keys
+!w::Send("{Up}")
+!s::Send("{Down}")
+!a::Send("{Left}")
+!d::Send("{Right}")
 
-!w::SendInput("{Up}")
-!s::SendInput("{Down}")
-!a::SendInput("{Left}")
-!d::SendInput("{Right}")
+; Reload script
+^+!r::Reload()
 
-; Copilot -> Ctrl (chuẩn giữ/nhả)
-^+!r:: Reload        ; Ctrl+Shift+Alt+R to reload the script
-
-; rebind copilot to rCtrl
-*<+<#f23:: {
+; Rebind Copilot key -> Right Ctrl
+*<+<#f23::
+{
     Send("{Blind}{LShift Up}{LWin Up}{RControl Down}")
     KeyWait("F23")
-    Send("{RControl up}")
+    Send("{RControl Up}")
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#Requires AutoHotkey v2.0
-#Requires AutoHotkey v2.0
+; =========================
+; Auto switch input method
+; =========================
 
 global last := ""
-
-; ===== Danh sách app =====
-; viết thường hết để compare nhanh + ổn định
 
 englishApps := Map(
     "notepad.exe", 1,
     "pcw.exe", 1,
-    "pds.exe", 1,
+    "FluentSearch.exe", 1,
     "matlab.exe", 1,
     "zy_pass.exe", 1,
     "xz pass.exe", 1
@@ -143,8 +60,7 @@ vietnameseApps := Map(
     "opera.exe", 1
 )
 
-; 500ms vẫn rất nhẹ
-SetTimer(CheckApp, 3000)
+SetTimer(CheckApp, 500)
 
 CheckApp()
 {
@@ -152,12 +68,10 @@ CheckApp()
     global englishApps
     global vietnameseApps
 
-    try proc := StrLower(WinGetProcessName("A"))
+    try proc := WinGetProcessName("A")
     catch
         return
 
-    ; ===== Early Exit =====
-    ; app không đổi -> thoát luôn
     if (proc = last)
         return
 
@@ -165,28 +79,23 @@ CheckApp()
 
     hwnd := WinExist("A")
 
-    ; ===== English =====
     if englishApps.Has(proc)
     {
+        ; English US
         PostMessage(0x50, 0, 0x0409, , hwnd)
     }
-
-    ; ===== Vietnamese =====
     else if vietnameseApps.Has(proc)
     {
+        ; Vietnamese
         PostMessage(0x50, 0, 0x042A, , hwnd)
     }
 }
 
-!r::
+
+
+!v::SendInput("^{``}")
+!z::
 {
-      KeyWait("RAlt")
-    Send("!{Space}")
+    Send("^a")
+    Send("{Backspace}")
 }
-
-
-!v::Send("^{``}")
-
-#Requires AutoHotkey v2.0
-
-^Enter::Send("^f")
