@@ -25,8 +25,7 @@ A_MaxHotkeysPerInterval := 999999
 !a::Send("{Left}")
 !d::Send("{Right}")
 
-; Reload script
-^+!r::Reload()
+
 
 ; Rebind Copilot key -> Right Ctrl
 *<+<#f23::
@@ -46,6 +45,8 @@ englishApps := Map(
     "notepad.exe", 1,
     "pcw.exe", 1,
     "FluentSearch.exe", 1,
+	"lookapp.exe", 1,
+	"Listary.exe", 1,
     "matlab.exe", 1,
     "zy_pass.exe", 1,
     "xz pass.exe", 1
@@ -94,10 +95,16 @@ CheckApp()
 
 
 !v::SendInput("^{``}")
-!z::
-{
-    Send("^a")
-    Send("{Backspace}")
-}
+
 
 !g::SendText('git commit --allow-empty -m "NOTE: " && git push')
+
+^Enter::
+{
+    Send("^f")
+}
+
+
+
+
+
