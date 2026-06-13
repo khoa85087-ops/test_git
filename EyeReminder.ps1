@@ -16,7 +16,7 @@ Add-Type -AssemblyName System.Drawing
 while ($true)
 {
     # Đếm sau khi popup trước đã đóng
-    Start-Sleep -Seconds 10
+    Start-Sleep -Seconds 3000
 
     $form = New-Object System.Windows.Forms.Form
     $form.Text = "Eye Reminder"
