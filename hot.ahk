@@ -30,7 +30,7 @@ A_MaxHotkeysPerInterval := 999999
 *<+<#f23::
 {
     Send("{Blind}{LShift Up}{LWin Up}")
-    Send("^k")
+    Send("+a")
 }
 
 ; =========================
@@ -92,7 +92,7 @@ CheckApp()
 
 
 
-
+!v::SendInput("^{``}")
 
 
 !g::SendText('git commit --allow-empty -m "NOTE: " && git push')
@@ -107,12 +107,6 @@ CheckApp()
     Send("!{Space}")
 }
 
-!l::
-{
-    Send("^c")
-}
 
-!p::
-{
-    Send("^v")
-}
+
+
