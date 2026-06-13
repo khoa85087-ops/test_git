@@ -15,9 +15,8 @@ Add-Type -AssemblyName System.Drawing
 
 while ($true)
 {
-    # 11 giây (~41 phút 40 giây)
-    Start-Sleep -Seconds 30
-
+    # Đếm sau khi popup trước đã đóng
+    Start-Sleep -Seconds 10
 
     $form = New-Object System.Windows.Forms.Form
     $form.Text = "Eye Reminder"
@@ -26,13 +25,13 @@ while ($true)
     $form.TopMost = $true
 
     $label = New-Object System.Windows.Forms.Label
-    $label.Text = "Look into the space"
+    $label.Text = "Look into the distance"
     $label.AutoSize = $true
-    $label.Location = New-Object System.Drawing.Point(80,20)
+    $label.Location = New-Object System.Drawing.Point(70,20)
     $form.Controls.Add($label)
 
     $timer = New-Object System.Windows.Forms.Timer
-    $timer.Interval = 60000   # 30 giây
+    $timer.Interval = 10000   # popup tồn tại 10 giây
 
     $timer.Add_Tick({
         $timer.Stop()
@@ -41,5 +40,8 @@ while ($true)
 
     $timer.Start()
 
-    $form.ShowDialog() | Out-Null
+    [void]$form.ShowDialog()
+
+    $timer.Dispose()
+    $form.Dispose()
 }
