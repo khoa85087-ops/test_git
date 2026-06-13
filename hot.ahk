@@ -92,7 +92,7 @@ CheckApp()
 
 
 
-!v::SendInput("^{``}")
+
 
 
 !g::SendText('git commit --allow-empty -m "NOTE: " && git push')
@@ -107,6 +107,12 @@ CheckApp()
     Send("!{Space}")
 }
 
+!l::
+{
+    Send("^c")
+}
 
-
-
+!p::
+{
+    Send("^v")
+}
