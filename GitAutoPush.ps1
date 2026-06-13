@@ -10,7 +10,7 @@ while ($true)
 
         if (-not $changes)
         {
-            Start-Sleep -Seconds 1800
+            Start-Sleep -Seconds 300
             continue
         }
 
@@ -42,5 +42,5 @@ while ($true)
         Out-File "$repo\autogit_error.log" -Append
     }
 
-    Start-Sleep -Seconds 1800
+    Start-Sleep -Seconds 10
 }

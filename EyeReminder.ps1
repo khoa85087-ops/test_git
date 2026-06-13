@@ -16,7 +16,7 @@ Add-Type -AssemblyName System.Drawing
 while ($true)
 {
     # 11 giây (~41 phút 40 giây)
-    Start-Sleep -Seconds 3000
+    Start-Sleep -Seconds 30
 
 
     $form = New-Object System.Windows.Forms.Form
