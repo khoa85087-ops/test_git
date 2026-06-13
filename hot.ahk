@@ -27,12 +27,10 @@ A_MaxHotkeysPerInterval := 999999
 
 
 
-; Rebind Copilot key -> Right Ctrl
 *<+<#f23::
 {
-    Send("{Blind}{LShift Up}{LWin Up}{RControl Down}")
-    KeyWait("F23")
-    Send("{RControl Up}")
+    Send("{Blind}{LShift Up}{LWin Up}")
+    Send("^k")
 }
 
 ; =========================
@@ -103,7 +101,11 @@ CheckApp()
 {
     Send("^f")
 }
-
+!r::
+{
+      KeyWait("RAlt")
+    Send("!{Space}")
+}
 
 
 
