@@ -1,2 +1,11 @@
 
 https://1drv.ms/o/c/79eb5caf13a57665/IgBY0mZp-VERQYPnKshEsU-CAWwTU3kQefpAhhgQ065xjoY?e=AZe8wv
+
+
+
+Set-Service usosvc -StartupType Manual
+Set-Service wuauserv -StartupType Manual
+Set-Service WaaSMedicSvc -StartupType Manual
+
+Start-Service wuauserv
+Start-Service usosvc
