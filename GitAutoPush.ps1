@@ -43,6 +43,6 @@ while ($true)
         Out-File "$repo\autogit_error.log" -Append
     }
 
-    Start-Sleep -Seconds 18
+    Start-Sleep -Seconds 1800
 	
 }
