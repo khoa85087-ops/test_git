@@ -19,6 +19,15 @@ xem trạng thái
 
 Get-NetFirewallRule -Action Block |
 Select-Object DisplayName, Direction, Enabled
+
+
  gỡ block 
- Remove-NetFirewallRule -DisplayName "Block brave Outbound"
-Remove-NetFirewallRule -DisplayName "Block brave Inbound"
+Get-NetFirewallRule |
+Where-Object DisplayName -like "*Look*" |
+Remove-NetFirewallRule
+
+xem chi tiết 
+Get-NetFirewallRule |
+Where-Object DisplayName -like "*Look*" |
+Get-NetFirewallApplicationFilter |
+Select Program
