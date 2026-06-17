@@ -1,0 +1,24 @@
+$exe = "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
+
+New-NetFirewallRule `
+    -DisplayName "Block brave Outbound" `
+    -Direction Outbound `
+    -Program $exe `
+    -Action Block `
+    -Profile Any
+
+New-NetFirewallRule `
+    -DisplayName "Block brave Inbound" `
+    -Direction Inbound `
+    -Program $exe `
+    -Action Block `
+    -Profile Any
+	
+	
+xem trạng thái 
+
+Get-NetFirewallRule -Action Block |
+Select-Object DisplayName, Direction, Enabled
+ gỡ block 
+ Remove-NetFirewallRule -DisplayName "Block brave Outbound"
+Remove-NetFirewallRule -DisplayName "Block brave Inbound"
