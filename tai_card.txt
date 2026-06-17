@@ -1,0 +1,61 @@
+# ===== FILE DUY NHẤT – TẢI FULL ART (KỂ CẢ ALT ART) =====
+
+$START_DATE = "2025-02-26"
+$END_DATE   = "2026-06-17"   # sửa ngày bạn muốn
+$PAGE_SIZE  = 100
+$OFFSET     = 0
+$PIC_DIR    = "picr"
+
+if (-not (Test-Path $PIC_DIR)) {
+    New-Item -ItemType Directory -Path $PIC_DIR | Out-Null
+}
+
+$allCards = @()
+
+while ($true) {
+
+    $url = "https://db.ygoprodeck.com/api/v7/cardinfo.php?startdate=$START_DATE&enddate=$END_DATE&num=$PAGE_SIZE&offset=$OFFSET"
+
+    Write-Host "Dang lay du lieu offset $OFFSET..."
+
+    try {
+        $resp = Invoke-RestMethod -Uri $url -TimeoutSec 60
+    } catch {
+        Write-Host "Loi ket noi API"
+        break
+    }
+
+    if (-not $resp.data -or $resp.data.Count -eq 0) {
+        break
+    }
+
+    foreach ($card in $resp.data) {
+
+        $allCards += $card
+
+        # tải tất cả artwork (bao gồm alt-art)
+        if ($card.card_images -and $card.card_images.Count -gt 0) {
+
+            foreach ($img in $card.card_images) {
+
+                $out = "$PIC_DIR\$($img.id).jpg"
+
+                if (-not (Test-Path $out)) {
+                    try {
+                        Invoke-WebRequest -Uri $img.image_url -OutFile $out -TimeoutSec 60
+                        Write-Host "Downloaded $($img.id)"
+                    } catch {}
+                }
+            }
+        }
+    }
+
+    $OFFSET += $PAGE_SIZE
+}
+
+# Lưu JSON tổng
+$allCards |
+  ConvertTo-Json -Depth 10 |
+  Set-Content "ygopro_cards_${START_DATE}_to_${END_DATE}.json" -Encoding UTF8
+
+Write-Host "Hoan tat!"
