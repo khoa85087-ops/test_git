@@ -101,7 +101,7 @@ CheckApp()
 {
     Send("^f")
 }
-
+LAlt::Send("#+s")
 
 
 
