@@ -1,0 +1,21 @@
+dừng 
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" -Name PauseUpdatesExpiryTime -Value "2099-11-11T16:38:59Z"
+
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" -Name PauseFeatureUpdatesEndTime -Value "2099-11-11T11:11:11Z"
+
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" -Name PauseQualityUpdatesEndTime -Value "2099-11-11T11:11:11Z"
+
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" -Name PauseUpdatesStartTime -Value "1990-11-22T15:09:05Z"
+
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" -Name PauseFeatureUpdatesStartTime -Value "1990-11-22T15:09:05Z"
+
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" -Name PauseQualityUpdatesStartTime -Value "1990-11-22T15:09:05Z"
+
+
+mở lại 
+Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" -Name PauseUpdatesExpiryTime -ErrorAction SilentlyContinue
+Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" -Name PauseFeatureUpdatesEndTime -ErrorAction SilentlyContinue
+Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" -Name PauseQualityUpdatesEndTime -ErrorAction SilentlyContinue
+Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" -Name PauseUpdatesStartTime -ErrorAction SilentlyContinue
+Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" -Name PauseFeatureUpdatesStartTime -ErrorAction SilentlyContinue
+Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" -Name PauseQualityUpdatesStartTime -ErrorAction SilentlyContinue

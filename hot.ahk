@@ -30,65 +30,12 @@ A_MaxHotkeysPerInterval := 999999
 *<+<#f23::
 {
     Send("{Blind}{LShift Up}{LWin Up}")
-    Send("!{Space}")
+    Send("{Ctrl Down}")
+    KeyWait("F23")
+    Send("{Ctrl Up}")
 }
 
-; =========================
-; Auto switch input method
-; =========================
 
-global last := ""
-
-englishApps := Map(
-    "notepad.exe", 1,
-    "pcw.exe", 1,
-    "FluentSearch.exe", 1,
-	"lookapp.exe", 1,
-	"Listary.exe", 1,
-    "matlab.exe", 1,
-    "zy_pass.exe", 1,
-    "xz pass.exe", 1
-)
-
-vietnameseApps := Map(
-    "brave.exe", 1,
-    "zalo.exe", 1,
-    "onenote.exe", 1,
-    "winword.exe", 1,
-    "windowsterminal.exe", 1,
-    "opera.exe", 1
-)
-
-SetTimer(CheckApp, 500)
-
-CheckApp()
-{
-    global last
-    global englishApps
-    global vietnameseApps
-
-    try proc := WinGetProcessName("A")
-    catch
-        return
-
-    if (proc = last)
-        return
-
-    last := proc
-
-    hwnd := WinExist("A")
-
-    if englishApps.Has(proc)
-    {
-        ; English US
-        PostMessage(0x50, 0, 0x0409, , hwnd)
-    }
-    else if vietnameseApps.Has(proc)
-    {
-        ; Vietnamese
-        PostMessage(0x50, 0, 0x042A, , hwnd)
-    }
-}
 
 
 

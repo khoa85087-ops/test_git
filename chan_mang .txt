@@ -1,14 +1,14 @@
-$exe = "C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
+$exe = "C:\Users\AD\Downloads\ck\UniKeyNT.exe"
 
 New-NetFirewallRule `
-    -DisplayName "Block brave Outbound" `
+    -DisplayName "Block unikey Outbound" `
     -Direction Outbound `
     -Program $exe `
     -Action Block `
     -Profile Any
 
 New-NetFirewallRule `
-    -DisplayName "Block brave Inbound" `
+    -DisplayName "Block unikey Inbound" `
     -Direction Inbound `
     -Program $exe `
     -Action Block `
@@ -28,6 +28,6 @@ Remove-NetFirewallRule
 
 xem chi tiết 
 Get-NetFirewallRule |
-Where-Object DisplayName -like "*Look*" |
+Where-Object DisplayName -like "*unikey*" |
 Get-NetFirewallApplicationFilter |
 Select Program
