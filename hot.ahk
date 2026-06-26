@@ -42,14 +42,24 @@ A_MaxHotkeysPerInterval := 999999
 !v::SendInput("^{``}")
 
 
-!g::SendText('git commit --allow-empty -m "NOTE: " && git push')
+!p::SendText('git commit --allow-empty -m "NOTE: " && git push')
 
 ^Enter::
 {
     Send("^f")
 }
-LAlt::Send("#+s")
+`::Send("#+s")
 
 
 
 
+
+#Requires AutoHotkey v2.0
+
+!Space::
+{
+    SendInput("{Blind}!{Space}")
+
+    if WinWait("ahk_exe lookapp.exe", , 0.3)
+        WinMaximize("ahk_exe lookapp.exe")
+}

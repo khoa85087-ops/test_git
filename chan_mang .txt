@@ -31,3 +31,9 @@ Get-NetFirewallRule |
 Where-Object DisplayName -like "*unikey*" |
 Get-NetFirewallApplicationFilter |
 Select Program
+ 
+ 
+ lấy path 
+ Get-NetFirewallRule -DisplayName "Block Adsk*" |
+Get-NetFirewallApplicationFilter |
+Select-Object Programa
