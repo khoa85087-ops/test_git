@@ -39,7 +39,7 @@ A_MaxHotkeysPerInterval := 999999
 
 
 
-!v::SendInput("^{``}")
+
 
 
 !g::SendText('git commit --allow-empty -m "NOTE: " && git push')
