@@ -1,0 +1,25 @@
+# ===== CẤU HÌNH - chỉnh 2 dòng dưới theo ý bạn =====
+$adapter = "Wi-Fi"          # tên card mạng, xem bằng Get-NetAdapter
+$dns1    = "1.1.1.1"        # DNS chính (Cloudflare)
+$dns2    = "1.0.0.1"        # DNS phụ
+
+# ===== THỰC THI =====
+Set-DnsClientServerAddress -InterfaceAlias $adapter -ServerAddresses ($dns1, $dns2)
+Clear-DnsClientCache
+
+Write-Host "Đã đổi DNS cho '$adapter' thành công. DNS hiện tại:" -ForegroundColor Green
+Get-DnsClientServerAddress -InterfaceAlias $adapter -AddressFamily IPv4
+
+
+hủy 
+# ===== HỦY VỀ DNS MẶC ĐỊNH (tự động - DHCP) =====
+$adapter = "Wi-Fi"          # tên card mạng
+
+Set-DnsClientServerAddress -InterfaceAlias $adapter -ResetServerAddresses
+Clear-DnsClientCache
+
+Write-Host "Đã đưa DNS về mặc định (tự động) cho '$adapter'." -ForegroundColor Yellow
+Get-DnsClientServerAddress -InterfaceAlias $adapter -AddressFamily IPv4
+
+kiểm tra
+Get-DnsClientServerAddress -InterfaceAlias "Wi-Fi"
